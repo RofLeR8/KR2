@@ -1,7 +1,7 @@
 #ifndef STACK_HPP
 #define STACK_HPP
 #include <exception>
-#include <iostream>
+// #include <iostream>
 template <class T> class Stack {
 public:
   virtual ~Stack() {}
@@ -79,7 +79,7 @@ template <class T> void StackArray<T>::push(const T &element) {
     top_++;
     dataArray_[top_] = element;
   }
-  std::cout << "Element(" << element << ") was inserted into stack\n";
+  // std::cout << "Element(" << element << ") was inserted into stack\n";
 }
 
 // pop
@@ -89,7 +89,7 @@ template <typename T> T StackArray<T>::pop() {
   } else {
     T element = dataArray_[top_];
     top_--;
-    std::cout << "Element(" << element << ") was removed from stack\n";
+    // std::cout << "Element(" << element << ") was removed from stack\n";
     return element;
   }
 }

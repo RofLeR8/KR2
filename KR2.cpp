@@ -60,9 +60,8 @@ void getPostfixFromInfix(const std::string &infix, std::string &postfix,
         throw std::invalid_argument("Invalid input"); // if not throw exception
       }
     } else {
-      doubleOpearation++;
       if (it == '+' || it == '-') { // if it == '+'  or '-' add all operation
-                                    // with higher priority to postfix
+        doubleOpearation++;         // with higher priority to postfix
         while ((operations.top() != '(') && !operations.isEmpty()) {
           postfix += operations.pop();
         }
@@ -70,7 +69,7 @@ void getPostfixFromInfix(const std::string &infix, std::string &postfix,
         continue;
       }
       if (it == '*' || it == '/') { // if it == '*' or '/' simply  push in stack
-                                    // because it has the highest priority
+        doubleOpearation++;         // because it has the highest priority
         operations.push(it);
         continue;
       }

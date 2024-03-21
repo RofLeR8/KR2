@@ -1,4 +1,4 @@
-#include "Stack.hpp"
+#include "StackArray.hpp"
 #include <iostream>
 #include <stdexcept>
 
@@ -13,9 +13,9 @@ bool checkOperations(
 }
 
 bool checkBalanceBrackets(
-    const std::string
-        &expression) { // updated version of func from Task#2_Stack
-  StackArray<char> stack;
+    const std::string &expression,
+    int maxDeep) { // updated version of func from Task#2_Stack
+  StackArray<char> stack(maxDeep);
   for (char c : expression) {
     if (c == '(' || c == '{' || c == '[') {
       stack.push(c);
@@ -36,7 +36,7 @@ bool checkBalanceBrackets(
 
 void getPostfixFromInfix(const std::string &infix, std::string &postfix,
                          const std::size_t stackSize) {
-  if (!checkBalanceBrackets(infix)) {
+  if (!checkBalanceBrackets(infix, infix.length())) {
     throw std::runtime_error("Error! Expression has unbalanced brackets.");
   }
   int doubleOpearation = 0;
